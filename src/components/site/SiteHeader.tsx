@@ -96,12 +96,12 @@ export function SiteHeader() {
       </div>
 
       {/* MAIN BAR */}
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 md:px-10 md:py-6">
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-4 md:px-10 md:py-5">
         <Link to="/" className="flex items-center" aria-label="Sterling Wong">
           <img
             src={swLogo}
             alt="Sterling Wong — Personal Real Estate Corporation"
-            className="h-16 w-auto object-contain md:h-20 lg:h-24"
+            className="h-12 w-auto object-contain md:h-14"
           />
         </Link>
 
