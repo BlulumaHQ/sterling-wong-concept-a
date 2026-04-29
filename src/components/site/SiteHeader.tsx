@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Mail, Menu, Phone, X } from "lucide-react";
 import oakwyn from "@/assets/sterling/oakwyn-logo.png";
+import { useI18n } from "@/lib/i18n";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/listings", label: "Listings" },
-  { to: "/buying", label: "Buying" },
-  { to: "/selling", label: "Selling" },
-  { to: "/communities", label: "Communities" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", labelKey: "nav.home" },
+  { to: "/listings", labelKey: "nav.listings" },
+  { to: "/buying", labelKey: "nav.buying" },
+  { to: "/selling", labelKey: "nav.selling" },
+  { to: "/communities", labelKey: "nav.communities" },
+  { to: "/about", labelKey: "nav.about" },
+  { to: "/contact", labelKey: "nav.contact" },
 ] as const;
 
 export function SiteHeader() {
