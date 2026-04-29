@@ -101,7 +101,7 @@ export function SiteHeader() {
           <img
             src={swLogo}
             alt="Sterling Wong — Personal Real Estate Corporation"
-            className="h-10 w-auto object-contain md:h-12"
+            className="h-16 w-auto object-contain md:h-20 lg:h-24"
           />
         </Link>
 
