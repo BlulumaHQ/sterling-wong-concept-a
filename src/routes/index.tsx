@@ -259,10 +259,14 @@ function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-12 grid gap-10 md:grid-cols-2">
+          <div className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { img: l1, name: "Detached Residence", area: "West Side, Vancouver", price: "$4.2M" },
-              { img: l2, name: "Downtown Penthouse", area: "West Georgia, Vancouver", price: "$2.8M" },
+              { img: l1, name: "Detached Residence", area: "West Side, Vancouver", price: "$4,280,000" },
+              { img: l2, name: "Downtown Penthouse", area: "West Georgia, Vancouver", price: "$2,850,000" },
+              { img: l3, name: "Family Townhome", area: "Sills Ave, Richmond", price: "$1,690,000" },
+              { img: l4, name: "Modern Residence", area: "Cambie, Vancouver", price: "$3,420,000" },
+              { img: l5, name: "Urban Apartment", area: "Yaletown, Vancouver", price: "$1,180,000" },
+              { img: l6, name: "Station Square", area: "Metrotown, Burnaby", price: "$980,000" },
             ].map((p) => (
               <article key={p.name} className="group">
                 <div className="overflow-hidden">
@@ -270,15 +274,15 @@ function HomePage() {
                     src={p.img}
                     alt={`${p.name} in ${p.area}`}
                     loading="lazy"
-                    className="aspect-[4/3] w-full object-cover transition duration-[1200ms] group-hover:scale-105"
+                    className="aspect-[4/5] w-full object-cover transition duration-[1200ms] group-hover:scale-105"
                   />
                 </div>
-                <div className="mt-6 flex items-end justify-between">
+                <div className="mt-5 flex items-start justify-between gap-4">
                   <div>
-                    <h3 className="font-display text-2xl text-ivory">{p.name}</h3>
-                    <p className="mt-1 text-xs uppercase tracking-[0.28em] text-ivory/50">{p.area}</p>
+                    <h3 className="font-display text-xl text-ivory">{p.name}</h3>
+                    <p className="mt-1 text-[10px] uppercase tracking-[0.3em] text-ivory/50">{p.area}</p>
                   </div>
-                  <span className="font-display text-xl text-gold">{p.price}</span>
+                  <span className="whitespace-nowrap font-display text-base text-gold">{p.price}</span>
                 </div>
               </article>
             ))}
