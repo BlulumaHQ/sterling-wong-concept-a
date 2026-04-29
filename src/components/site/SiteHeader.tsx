@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Mail, Menu, Phone, X } from "lucide-react";
 import oakwyn from "@/assets/sterling/oakwyn-logo.png";
+import { useI18n } from "@/lib/i18n";
 
 const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/listings", label: "Listings" },
-  { to: "/buying", label: "Buying" },
-  { to: "/selling", label: "Selling" },
-  { to: "/communities", label: "Communities" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", labelKey: "nav.home" },
+  { to: "/listings", labelKey: "nav.listings" },
+  { to: "/buying", labelKey: "nav.buying" },
+  { to: "/selling", labelKey: "nav.selling" },
+  { to: "/communities", labelKey: "nav.communities" },
+  { to: "/about", labelKey: "nav.about" },
+  { to: "/contact", labelKey: "nav.contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -18,6 +19,27 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const isHome = pathname === "/";
+  const { lang, setLang, t } = useI18n();
+
+  const LangSwitch = ({ className = "" }: { className?: string }) => (
+    <div className={`inline-flex items-center gap-1 text-[10px] font-medium uppercase tracking-[0.28em] ${className}`}>
+      <button
+        onClick={() => setLang("en")}
+        className={`px-1.5 py-0.5 transition ${lang === "en" ? "text-gold" : "text-ivory/55 hover:text-ivory"}`}
+        aria-label="Switch to English"
+      >
+        EN
+      </button>
+      <span className="text-ivory/25">/</span>
+      <button
+        onClick={() => setLang("zh")}
+        className={`px-1.5 py-0.5 transition ${lang === "zh" ? "text-gold" : "text-ivory/55 hover:text-ivory"}`}
+        aria-label="切換至廣東話"
+      >
+        繁
+      </button>
+    </div>
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -44,9 +66,9 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-2.5 md:px-10">
           <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.32em] text-ivory/55">
-            <span>Vancouver · Burnaby · Richmond</span>
+            <span>{t("header.regions")}</span>
             <span className="text-ivory/20">|</span>
-            <span>English / 廣東話</span>
+            <LangSwitch />
           </div>
           <div className="flex items-center gap-6">
             <a
@@ -67,7 +89,7 @@ export function SiteHeader() {
               to="/contact"
               className="inline-flex items-center justify-center bg-gold px-5 py-2 text-[10px] font-medium uppercase tracking-[0.32em] text-charcoal transition hover:bg-ivory"
             >
-              Book Consultation
+              {t("header.book")}
             </Link>
           </div>
         </div>
@@ -81,7 +103,7 @@ export function SiteHeader() {
               Sterling Wong
             </span>
             <span className="text-[9px] uppercase tracking-[0.4em] text-gold">
-              Personal Real Estate Corp.
+              {t("header.prec")}
             </span>
           </span>
           <span className="hidden h-10 w-px bg-ivory/20 md:block" />
@@ -101,18 +123,21 @@ export function SiteHeader() {
               activeProps={{ className: "text-gold" }}
               activeOptions={{ exact: item.to === "/" }}
             >
-              {item.label}
+              {t(item.labelKey)}
             </Link>
           ))}
         </nav>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="border border-ivory/30 p-2 text-ivory lg:hidden"
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LangSwitch className="text-ivory/80" />
+          <button
+            onClick={() => setOpen(!open)}
+            className="border border-ivory/30 p-2 text-ivory"
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -127,7 +152,7 @@ export function SiteHeader() {
                 activeProps={{ className: "text-gold" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
             <a
@@ -141,7 +166,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center bg-gold px-5 py-3 text-[11px] font-medium uppercase tracking-[0.32em] text-charcoal"
             >
-              Book Consultation
+              {t("header.book")}
             </Link>
           </nav>
         </div>

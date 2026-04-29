@@ -1,35 +1,36 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 
 export function SiteFooter() {
+  const { t } = useI18n();
   return (
     <footer className="bg-charcoal text-ivory">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl">Sterling Wong</p>
-          <p className="mt-1 text-[11px] uppercase tracking-[0.28em] text-gold">
-            Personal Real Estate Corporation
+          <p className="font-display text-2xl tracking-[0.2em] uppercase">Sterling Wong</p>
+          <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-gold">
+            {t("header.prec")}
           </p>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/70">
-            Helping clients buy and sell homes across Vancouver, Burnaby, Richmond and the Lower
-            Mainland with personalized, bilingual service.
+            {t("footer.tagline")}
           </p>
         </div>
 
         <div>
-          <p className="text-[11px] uppercase tracking-[0.28em] text-gold">Explore</p>
+          <p className="text-[10px] uppercase tracking-[0.32em] text-gold">{t("footer.explore")}</p>
           <ul className="mt-5 space-y-2.5 text-sm text-ivory/80">
-            <li><Link to="/listings" className="hover:text-gold">Listings</Link></li>
-            <li><Link to="/buying" className="hover:text-gold">Buying</Link></li>
-            <li><Link to="/selling" className="hover:text-gold">Selling</Link></li>
-            <li><Link to="/communities" className="hover:text-gold">Communities</Link></li>
-            <li><Link to="/about" className="hover:text-gold">About Sterling</Link></li>
-            <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
+            <li><Link to="/listings" className="hover:text-gold">{t("nav.listings")}</Link></li>
+            <li><Link to="/buying" className="hover:text-gold">{t("nav.buying")}</Link></li>
+            <li><Link to="/selling" className="hover:text-gold">{t("nav.selling")}</Link></li>
+            <li><Link to="/communities" className="hover:text-gold">{t("nav.communities")}</Link></li>
+            <li><Link to="/about" className="hover:text-gold">{t("nav.about")}</Link></li>
+            <li><Link to="/contact" className="hover:text-gold">{t("nav.contact")}</Link></li>
           </ul>
         </div>
 
         <div>
-          <p className="text-[11px] uppercase tracking-[0.28em] text-gold">Contact</p>
+          <p className="text-[10px] uppercase tracking-[0.32em] text-gold">{t("footer.contact")}</p>
           <ul className="mt-5 space-y-3 text-sm text-ivory/80">
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 text-gold" />
@@ -50,8 +51,8 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-ivory/50 md:flex-row">
-          <p>© {new Date().getFullYear()} Sterling Wong PREC. All rights reserved.</p>
-          <p>黃德權 · Bilingual service in English & 廣東話</p>
+          <p>© {new Date().getFullYear()} Sterling Wong PREC. {t("footer.rights")}</p>
+          <p>黃德權 · {t("footer.bilingual")}</p>
         </div>
       </div>
     </footer>
