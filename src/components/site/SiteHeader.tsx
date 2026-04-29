@@ -30,9 +30,9 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-500 ${
-        scrolled
-          ? "bg-charcoal/95 backdrop-blur border-b border-ivory/10"
-          : "bg-transparent"
+        transparent
+          ? "bg-transparent"
+          : "bg-charcoal/95 backdrop-blur border-b border-ivory/10"
       }`}
     >
       <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 md:px-10">
