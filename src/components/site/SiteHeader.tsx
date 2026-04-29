@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
-import { Menu, Phone, X } from "lucide-react";
+import { Mail, Menu, Phone, X } from "lucide-react";
+import oakwyn from "@/assets/sterling/oakwyn-logo.png";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -35,14 +36,60 @@ export function SiteHeader() {
           : "bg-charcoal/95 backdrop-blur border-b border-ivory/10"
       }`}
     >
-      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 md:px-10">
-        <Link to="/" className="flex flex-col leading-tight">
-          <span className="font-display text-base tracking-[0.28em] text-ivory uppercase">
-            Sterling Wong
+      {/* TOP UTILITY BAR */}
+      <div
+        className={`hidden border-b transition-colors duration-500 lg:block ${
+          transparent ? "border-ivory/15 bg-charcoal/40 backdrop-blur" : "border-ivory/10 bg-[oklch(0.10_0.005_60)]"
+        }`}
+      >
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-2.5 md:px-10">
+          <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.32em] text-ivory/55">
+            <span>Vancouver · Burnaby · Richmond</span>
+            <span className="text-ivory/20">|</span>
+            <span>English / 廣東話</span>
+          </div>
+          <div className="flex items-center gap-6">
+            <a
+              href="mailto:info@sterlingwong.ca"
+              className="hidden items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-ivory/70 hover:text-gold xl:inline-flex"
+            >
+              <Mail className="h-3 w-3" />
+              info@sterlingwong.ca
+            </a>
+            <a
+              href="tel:+16048360506"
+              className="inline-flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory hover:text-gold"
+            >
+              <Phone className="h-3 w-3 text-gold" />
+              +1 (604) 836-0506
+            </a>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-gold px-5 py-2 text-[10px] font-medium uppercase tracking-[0.32em] text-charcoal transition hover:bg-ivory"
+            >
+              Book Consultation
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* MAIN BAR */}
+      <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 md:px-10 md:py-6">
+        <Link to="/" className="flex items-center gap-4">
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-base tracking-[0.3em] text-ivory uppercase md:text-lg">
+              Sterling Wong
+            </span>
+            <span className="text-[9px] uppercase tracking-[0.4em] text-gold">
+              Personal Real Estate Corp.
+            </span>
           </span>
-          <span className="text-[9px] uppercase tracking-[0.4em] text-gold">
-            Personal Real Estate Corp.
-          </span>
+          <span className="hidden h-10 w-px bg-ivory/20 md:block" />
+          <img
+            src={oakwyn}
+            alt="Oakwyn Realty"
+            className="hidden h-10 w-auto object-contain opacity-90 md:block"
+          />
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
@@ -58,22 +105,6 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-
-        <div className="hidden items-center gap-5 lg:flex">
-          <a
-            href="tel:+16048360506"
-            className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.28em] text-ivory/80 hover:text-gold"
-          >
-            <Phone className="h-3.5 w-3.5" />
-            604.836.0506
-          </a>
-          <Link
-            to="/contact"
-            className="inline-flex items-center justify-center border border-ivory/40 px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.32em] text-ivory transition hover:border-gold hover:bg-gold hover:text-charcoal"
-          >
-            Book Consultation
-          </Link>
-        </div>
 
         <button
           onClick={() => setOpen(!open)}
