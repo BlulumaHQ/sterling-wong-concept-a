@@ -55,32 +55,32 @@ function HomePage() {
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 md:px-10 md:pb-28">
           <span className="mb-8 inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-gold">
             <span className="h-px w-10 bg-gold" />
-            A Sterling Wong Portfolio
+            {t("home.hero.kicker")}
           </span>
-          <h1 className="font-display max-w-5xl text-[14vw] leading-[0.92] text-ivory text-balance sm:text-7xl md:text-8xl lg:text-[8.5rem]">
-            Vancouver
+          <h1 className="font-display max-w-5xl text-[13vw] leading-[0.95] text-ivory text-balance sm:text-7xl md:text-8xl lg:text-[8rem]">
+            {t("home.hero.line1")}
             <br />
-            Real Estate,
+            {t("home.hero.line2")}
             <br />
-            <span className="italic font-serif font-light text-gold">Elevated.</span>
+            <span className="italic font-serif font-light text-gold">{t("home.hero.line3")}</span>
           </h1>
           <div className="mt-10 flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
             <p className="max-w-md text-base leading-relaxed text-ivory/75">
-              Exclusive properties, pre-sale opportunities, and tailored buying strategies for those who expect more from where they live.
+              {t("home.hero.sub")}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/listings"
                 className="group inline-flex items-center justify-between gap-8 border border-ivory/30 bg-ivory/5 px-7 py-4 text-[11px] font-medium uppercase tracking-[0.28em] text-ivory backdrop-blur transition hover:border-gold hover:text-gold"
               >
-                Explore Properties
+                {t("cta.explore")}
                 <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-12" />
               </Link>
               <Link
                 to="/contact"
                 className="group inline-flex items-center justify-between gap-8 bg-gold px-7 py-4 text-[11px] font-medium uppercase tracking-[0.28em] text-charcoal transition hover:bg-ivory"
               >
-                Book Private Consultation
+                {t("cta.book")}
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
               </Link>
             </div>
@@ -99,69 +99,77 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="flex flex-col items-start justify-between gap-8 border-b border-ivory/10 pb-10 md:flex-row md:items-end">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">The Portfolio</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{t("home.presale.kicker")}</p>
               <h2 className="mt-6 font-display text-5xl text-ivory text-balance sm:text-6xl md:text-7xl">
-                Featured pre-sale
+                {t("home.presale.title1")}
                 <br />
-                <span className="italic font-serif font-light text-ivory/60">opportunities.</span>
+                <span className="italic font-serif font-light text-ivory/60">{t("home.presale.title2")}</span>
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-ivory/60">
-              A small, deliberate selection of new developments — each chosen for its location, architecture and long-term value.
+              {t("home.presale.intro")}
             </p>
           </div>
 
           <div className="mt-20 space-y-32">
-            {PRESALES.map((p, i) => (
-              <article
-                key={p.name}
-                className={`grid gap-10 md:grid-cols-12 md:gap-16 ${
-                  i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <div className="md:col-span-7">
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={p.img}
-                      alt={`${p.name} — ${p.location}`}
-                      loading="lazy"
-                      className="aspect-[4/5] w-full object-cover transition duration-[1200ms] hover:scale-[1.03] md:aspect-[5/6]"
-                    />
-                    <span className="absolute left-0 top-0 bg-charcoal px-5 py-3 text-[10px] uppercase tracking-[0.32em] text-gold">
-                      {p.tag}
-                    </span>
+            {PRESALES.map((p, i) => {
+              const name = t(`presale.${p.key}.name`);
+              const location = t(`presale.${p.key}.location`);
+              const type = t(`presale.${p.key}.type`);
+              const price = t(`presale.${p.key}.price`);
+              const tag = t(`presale.${p.key}.tag`);
+              const desc = t(`presale.${p.key}.desc`);
+              return (
+                <article
+                  key={p.key}
+                  className={`grid gap-10 md:grid-cols-12 md:gap-16 ${
+                    i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
+                  }`}
+                >
+                  <div className="md:col-span-7">
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={p.img}
+                        alt={`${name} — ${location}`}
+                        loading="lazy"
+                        className="aspect-[4/5] w-full object-cover transition duration-[1200ms] hover:scale-[1.03] md:aspect-[5/6]"
+                      />
+                      <span className="absolute left-0 top-0 bg-charcoal px-5 py-3 text-[10px] uppercase tracking-[0.32em] text-gold">
+                        {tag}
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex flex-col justify-center md:col-span-5">
-                  <span className="font-display text-7xl text-ivory/15">{p.no}</span>
-                  <h3 className="mt-4 font-display text-4xl text-ivory text-balance md:text-5xl">
-                    {p.name}
-                  </h3>
-                  <div className="mt-6 grid grid-cols-2 gap-4 border-y border-ivory/10 py-5 text-xs uppercase tracking-[0.22em] text-ivory/50">
-                    <div>
-                      <p className="text-[9px] tracking-[0.3em] text-ivory/40">Location</p>
-                      <p className="mt-2 text-ivory">{p.location}</p>
+                  <div className="flex flex-col justify-center md:col-span-5">
+                    <span className="font-display text-7xl text-ivory/15">{p.no}</span>
+                    <h3 className="mt-4 font-display text-4xl text-ivory text-balance md:text-5xl">
+                      {name}
+                    </h3>
+                    <div className="mt-6 grid grid-cols-2 gap-4 border-y border-ivory/10 py-5 text-xs uppercase tracking-[0.22em] text-ivory/50">
+                      <div>
+                        <p className="text-[9px] tracking-[0.3em] text-ivory/40">{t("home.presale.location")}</p>
+                        <p className="mt-2 text-ivory">{location}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] tracking-[0.3em] text-ivory/40">{t("home.presale.type")}</p>
+                        <p className="mt-2 text-ivory">{type}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[9px] tracking-[0.3em] text-ivory/40">Type</p>
-                      <p className="mt-2 text-ivory">{p.type}</p>
+                    <p className="mt-6 text-base leading-relaxed text-ivory/70">{desc}</p>
+                    <div className="mt-8 flex items-center justify-between border-t border-ivory/10 pt-6">
+                      <span className="font-display text-2xl text-gold">{price}</span>
+                      <Link
+                        to="/contact"
+                        className="group inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.28em] text-ivory hover:text-gold"
+                      >
+                        {t("cta.requestDetails")}
+                        <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-12" />
+                      </Link>
                     </div>
                   </div>
-                  <p className="mt-6 text-base leading-relaxed text-ivory/70">{p.description}</p>
-                  <div className="mt-8 flex items-center justify-between border-t border-ivory/10 pt-6">
-                    <span className="font-display text-2xl text-gold">{p.price}</span>
-                    <Link
-                      to="/contact"
-                      className="group inline-flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.28em] text-ivory hover:text-gold"
-                    >
-                      Request Details
-                      <ArrowUpRight className="h-4 w-4 transition group-hover:rotate-12" />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -171,33 +179,24 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="grid gap-16 md:grid-cols-12">
             <div className="md:col-span-4">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">Philosophy</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{t("home.philo.kicker")}</p>
               <h2 className="mt-6 font-display text-5xl text-balance md:text-6xl">
-                Why Sterling
+                {t("home.philo.title1")}
                 <br />
-                <span className="italic font-serif font-light">Wong.</span>
+                <span className="italic font-serif font-light">{t("home.philo.title2")}</span>
               </h2>
             </div>
 
             <div className="md:col-span-8 md:pl-8">
               <p className="font-display text-2xl leading-snug text-charcoal text-balance md:text-3xl">
-                Real estate is not a transaction — it is a position. A statement of taste, of timing, of trust. My role is to give you the access, the strategy and the quiet confidence to make the right move.
+                {t("home.philo.quote")}
               </p>
 
               <div className="mt-16 grid gap-12 sm:grid-cols-3">
                 {[
-                  {
-                    n: "Expertise",
-                    c: "A decade studying Vancouver's micro-markets, from West Side detached to downtown pre-construction.",
-                  },
-                  {
-                    n: "Strategy",
-                    c: "Pricing, negotiation and timing — engineered around your goals, not the market's noise.",
-                  },
-                  {
-                    n: "Access",
-                    c: "Direct relationships with developers, presenting pre-sale opportunities before they reach the public.",
-                  },
+                  { n: t("home.philo.expertise"), c: t("home.philo.expertiseCopy") },
+                  { n: t("home.philo.strategy"), c: t("home.philo.strategyCopy") },
+                  { n: t("home.philo.access"), c: t("home.philo.accessCopy") },
                 ].map((b) => (
                   <div key={b.n} className="border-t border-charcoal/15 pt-5">
                     <p className="text-[10px] uppercase tracking-[0.32em] text-gold">{b.n}</p>
@@ -215,13 +214,13 @@ function HomePage() {
         <div className="mx-auto max-w-7xl px-6 md:px-10">
           <div className="flex items-end justify-between border-b border-ivory/10 pb-8">
             <h2 className="font-display text-4xl text-ivory md:text-5xl">
-              Selected properties
+              {t("home.selected.title")}
             </h2>
             <Link
               to="/listings"
               className="hidden text-[10px] uppercase tracking-[0.32em] text-ivory hover:text-gold sm:inline-flex"
             >
-              View Full Portfolio →
+              {t("cta.viewAll")}
             </Link>
           </div>
 
@@ -262,18 +261,18 @@ function HomePage() {
           to="/buying"
           className="group relative flex min-h-[420px] flex-col justify-between overflow-hidden bg-charcoal p-12 text-ivory transition hover:bg-[oklch(0.16_0.006_60)] md:p-16"
         >
-          <span className="text-[10px] uppercase tracking-[0.4em] text-gold">For Buyers</span>
+          <span className="text-[10px] uppercase tracking-[0.4em] text-gold">{t("home.buyers.kicker")}</span>
           <div>
             <h3 className="font-display text-5xl text-balance md:text-6xl">
-              Acquire with
+              {t("home.buyers.title1")}
               <br />
-              <span className="italic font-serif font-light">conviction.</span>
+              <span className="italic font-serif font-light">{t("home.buyers.title2")}</span>
             </h3>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/60">
-              From discovery to closing — a calm, considered process led by someone who has walked it hundreds of times.
+              {t("home.buyers.copy")}
             </p>
             <span className="mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-ivory transition group-hover:text-gold">
-              Begin <ArrowUpRight className="h-4 w-4" />
+              {t("cta.begin")} <ArrowUpRight className="h-4 w-4" />
             </span>
           </div>
         </Link>
@@ -282,18 +281,18 @@ function HomePage() {
           to="/selling"
           className="group relative flex min-h-[420px] flex-col justify-between overflow-hidden bg-ivory p-12 text-charcoal transition hover:bg-[oklch(0.94_0.005_85)] md:p-16"
         >
-          <span className="text-[10px] uppercase tracking-[0.4em] text-gold">For Sellers</span>
+          <span className="text-[10px] uppercase tracking-[0.4em] text-gold">{t("home.sellers.kicker")}</span>
           <div>
             <h3 className="font-display text-5xl text-balance md:text-6xl">
-              Position to
+              {t("home.sellers.title1")}
               <br />
-              <span className="italic font-serif font-light">command value.</span>
+              <span className="italic font-serif font-light">{t("home.sellers.title2")}</span>
             </h3>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-charcoal/60">
-              Editorial marketing, sharp pricing strategy, and a network of qualified buyers — assembled around your home.
+              {t("home.sellers.copy")}
             </p>
             <span className="mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.32em] text-charcoal transition group-hover:text-gold">
-              Begin <ArrowUpRight className="h-4 w-4" />
+              {t("cta.begin")} <ArrowUpRight className="h-4 w-4" />
             </span>
           </div>
         </Link>
@@ -311,12 +310,12 @@ function HomePage() {
             />
           </div>
           <div className="flex flex-col justify-center md:col-span-7">
-            <p className="text-[10px] uppercase tracking-[0.4em] text-gold">The Advisor</p>
+            <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{t("home.about.kicker")}</p>
             <h2 className="mt-6 font-display text-5xl text-ivory text-balance md:text-6xl">
-              Sterling Wong, <span className="italic font-serif font-light text-ivory/70">PREC.</span>
+              {t("home.about.titleName")} <span className="italic font-serif font-light text-ivory/70">{t("home.about.titlePrec")}</span>
             </h2>
             <p className="mt-8 text-base leading-relaxed text-ivory/70">
-              Personal Real Estate Corporation with Oakwyn Realty in Vancouver. Bilingual in English and Cantonese, with a discerning eye for quality and a reputation for discretion. Sterling represents clients across Vancouver, Burnaby and Richmond — from first homes to portfolio acquisitions.
+              {t("home.about.copy")}
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-ivory/10 pt-6 text-xs uppercase tracking-[0.28em] text-ivory/50">
               <span>Oakwyn Realty</span>
@@ -332,21 +331,21 @@ function HomePage() {
       {/* ============== 7. FINAL CTA ============== */}
       <section className="relative isolate overflow-hidden bg-ivory py-32 text-charcoal md:py-44">
         <div className="mx-auto max-w-6xl px-6 text-center md:px-10">
-          <p className="text-[10px] uppercase tracking-[0.4em] text-gold">An Invitation</p>
+          <p className="text-[10px] uppercase tracking-[0.4em] text-gold">{t("home.final.kicker")}</p>
           <h2 className="mt-8 font-display text-6xl leading-[0.95] text-charcoal text-balance md:text-8xl">
-            Work with
+            {t("home.final.title1")}
             <br />
-            <span className="italic font-serif font-light">Sterling.</span>
+            <span className="italic font-serif font-light">{t("home.final.title2")}</span>
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-charcoal/65">
-            Whether you are exploring a first home, repositioning a portfolio, or considering a pre-sale opportunity — begin with a private conversation.
+            {t("home.final.copy")}
           </p>
           <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               to="/contact"
               className="group inline-flex items-center justify-between gap-8 bg-charcoal px-9 py-5 text-[11px] font-medium uppercase tracking-[0.32em] text-ivory transition hover:bg-gold hover:text-charcoal"
             >
-              Book Private Consultation
+              {t("cta.book")}
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
             <a
