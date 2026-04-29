@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import { Mail, Menu, Phone, X } from "lucide-react";
-import oakwyn from "@/assets/sterling/oakwyn-logo.png";
+import swLogo from "@/assets/sterling/sw-logo.png";
 import { useI18n } from "@/lib/i18n";
 
 const NAV = [
@@ -97,20 +97,11 @@ export function SiteHeader() {
 
       {/* MAIN BAR */}
       <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 md:px-10 md:py-6">
-        <Link to="/" className="flex items-center gap-4">
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-base tracking-[0.3em] text-ivory uppercase md:text-lg">
-              Sterling Wong
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.4em] text-gold">
-              {t("header.prec")}
-            </span>
-          </span>
-          <span className="hidden h-10 w-px bg-ivory/20 md:block" />
+        <Link to="/" className="flex items-center" aria-label="Sterling Wong">
           <img
-            src={oakwyn}
-            alt="Oakwyn Realty"
-            className="hidden h-10 w-auto object-contain opacity-90 md:block"
+            src={swLogo}
+            alt="Sterling Wong — Personal Real Estate Corporation"
+            className="h-10 w-auto object-contain md:h-12"
           />
         </Link>
 

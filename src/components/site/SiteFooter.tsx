@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import swLogo from "@/assets/sterling/sw-logo.png";
 
 export function SiteFooter() {
   const { t } = useI18n();
@@ -8,10 +9,11 @@ export function SiteFooter() {
     <footer className="bg-charcoal text-ivory">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
         <div>
-          <p className="font-display text-2xl tracking-[0.2em] uppercase">Sterling Wong</p>
-          <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-gold">
-            {t("header.prec")}
-          </p>
+          <img
+            src={swLogo}
+            alt="Sterling Wong — Personal Real Estate Corporation"
+            className="h-14 w-auto object-contain"
+          />
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-ivory/70">
             {t("footer.tagline")}
           </p>
