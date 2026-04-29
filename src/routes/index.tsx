@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Award, Building2, Globe2, Home, KeyRound, MapPin, Phone, Star } from "lucide-react";
 import heroBanner from "@/assets/sterling/hero-banner.jpg";
-import agent from "@/assets/sterling/agent.jpg";
 import about from "@/assets/sterling/about.jpg";
 import l1 from "@/assets/sterling/listing-1.jpg";
 import l2 from "@/assets/sterling/listing-2.jpg";
