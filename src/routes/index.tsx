@@ -7,6 +7,10 @@ import crescent from "@/assets/sterling/presale-crescent.jpg";
 import skyline from "@/assets/sterling/presale-skyline.jpg";
 import l1 from "@/assets/sterling/listing-1.jpg";
 import l2 from "@/assets/sterling/listing-2.jpg";
+import l3 from "@/assets/sterling/listing-3.jpg";
+import l4 from "@/assets/sterling/listing-4.jpg";
+import l5 from "@/assets/sterling/listing-5.jpg";
+import l6 from "@/assets/sterling/listing-6.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
