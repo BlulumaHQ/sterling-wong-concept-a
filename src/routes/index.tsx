@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Phone } from "lucide-react";
+import { useI18n } from "@/lib/i18n";
 import heroLuxury from "@/assets/sterling/hero-luxury.jpg";
 import about from "@/assets/sterling/about.jpg";
 import aurora from "@/assets/sterling/presale-aurora.jpg";
@@ -33,42 +34,13 @@ export const Route = createFileRoute("/")({
 });
 
 const PRESALES = [
-  {
-    no: "01",
-    name: "Aurora Residence",
-    location: "Vancouver West",
-    type: "Luxury Condominium",
-    price: "From $1,200,000",
-    tag: "Pre-Sale Opportunity",
-    description:
-      "A vertical landmark of glass and stone, perched between mountain and sea. Private elevator access, hotel-grade amenities, and curated interiors by a celebrated Vancouver studio.",
-    img: aurora,
-  },
-  {
-    no: "02",
-    name: "The Crescent Collection",
-    location: "Richmond",
-    type: "Boutique Townhomes",
-    price: "From $950,000",
-    tag: "Limited Release",
-    description:
-      "Twenty-four architecturally distinct townhomes set within a quiet, tree-lined enclave. Generous floorplans, private rooftop terraces, and a refined material palette of stone, oak and bronze.",
-    img: crescent,
-  },
-  {
-    no: "03",
-    name: "Skyline Tower",
-    location: "Burnaby",
-    type: "High-Rise Residences",
-    price: "From $780,000",
-    tag: "New Development",
-    description:
-      "An icon on the city's evolving skyline. Floor-to-ceiling glass frames panoramic views of Metrotown, the North Shore mountains and the harbour beyond.",
-    img: skyline,
-  },
-];
+  { no: "01", key: "aurora", img: aurora },
+  { no: "02", key: "crescent", img: crescent },
+  { no: "03", key: "skyline", img: skyline },
+] as const;
 
 function HomePage() {
+  const { t } = useI18n();
   return (
     <div className="bg-charcoal text-ivory">
       {/* ============== 1. FULLSCREEN HERO ============== */}
