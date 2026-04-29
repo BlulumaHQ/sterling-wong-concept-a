@@ -72,21 +72,15 @@ function HomePage() {
   return (
     <div className="bg-charcoal text-ivory">
       {/* ============== 1. FULLSCREEN HERO ============== */}
-      <section className="relative isolate h-screen min-h-[720px] w-full overflow-hidden">
+      <section className="relative isolate flex min-h-screen w-full items-end overflow-hidden pt-44 md:pt-48">
         <img
           src={heroLuxury}
           alt="Vancouver skyline at dusk from a luxury penthouse"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-charcoal" />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/40 to-charcoal" />
 
-        {/* top meta bar */}
-        <div className="absolute inset-x-0 top-0 z-10 hidden items-center justify-between px-10 pt-8 text-[10px] uppercase tracking-[0.4em] text-ivory/60 md:flex">
-          <span>Est. Vancouver</span>
-          <span>Volume 01 — 2026 Portfolio</span>
-        </div>
-
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-end px-6 pb-20 md:px-10 md:pb-28">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 md:px-10 md:pb-28">
           <span className="mb-8 inline-flex items-center gap-3 text-[10px] uppercase tracking-[0.4em] text-gold">
             <span className="h-px w-10 bg-gold" />
             A Sterling Wong Portfolio
