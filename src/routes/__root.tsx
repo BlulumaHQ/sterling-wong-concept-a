@@ -45,6 +45,12 @@ export const Route = createRootRoute({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Sterling Wong PREC | Vancouver Real Estate Specialist" },
+      { name: "description", content: "Sterling's Ascent is a premium, conversion-focused real estate website designed to increase lead generation and enhance professional branding." },
+      { property: "og:description", content: "Sterling's Ascent is a premium, conversion-focused real estate website designed to increase lead generation and enhance professional branding." },
+      { name: "twitter:description", content: "Sterling's Ascent is a premium, conversion-focused real estate website designed to increase lead generation and enhance professional branding." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44464569-6052-49be-8243-b928f20f7bc7/id-preview-c8d52791--677c9a8e-e246-4296-8717-3dde46a38417.lovable.app-1777425911018.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/44464569-6052-49be-8243-b928f20f7bc7/id-preview-c8d52791--677c9a8e-e246-4296-8717-3dde46a38417.lovable.app-1777425911018.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
