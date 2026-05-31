@@ -55,6 +55,7 @@ export function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-ivory/50 md:flex-row">
           <p>© {new Date().getFullYear()} Sterling Wong PREC. {t("footer.rights")}</p>
           <p>黃德權 · {t("footer.bilingual")}</p>
+          <p>Web Design by Bluluma.com</p>
         </div>
       </div>
     </footer>
