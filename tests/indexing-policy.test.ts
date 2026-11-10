@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { applyIndexingPolicy, isHostingAlias } from "./indexing-policy";
-import netlifyIndexing, { config } from "../../netlify/edge-functions/hostname-indexing";
+import { applyIndexingPolicy, isHostingAlias } from "../src/lib/indexing-policy";
+import netlifyIndexing, { config } from "../netlify/edge-functions/hostname-indexing";
 
 describe("hostname-specific indexing", () => {
   for (const suffix of ["lovable.app", "workers.dev", "pages.dev", "netlify.app"]) {
