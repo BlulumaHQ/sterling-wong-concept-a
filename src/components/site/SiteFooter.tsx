@@ -53,7 +53,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-ivory/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-ivory/50 md:flex-row">
-          <p>© {new Date().getFullYear()} Sterling Wong PREC. {t("footer.rights")}</p>
+          <p>© {new Date().getFullYear()} Sterling Wong PREC. {t("footer.rights")}{" "}<span className="block mt-1 opacity-80" data-concept-note>Design concept for portfolio purposes only. Not the official website of Sterling Wong.</span></p>
           <p>黃德權 · {t("footer.bilingual")}</p>
           <p>Web Design by <a href="https://bluluma.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gold">Bluluma.com</a></p>
         </div>
